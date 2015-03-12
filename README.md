@@ -8,8 +8,29 @@
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To create a popup, use any UIView you have created, either from Xib or from code, and then do
+
+    PopupContainer.generatePopupWithView(yourView).show()
+
+To close a popup, just call close() function of PopupContainer.
+
+    class ViewController: UIViewController {
+        var aPopupContainer: PopupContainer?
+
+        @IBAction func showFromXibButtonPressed(sender: AnyObject) {
+            let xibView = NSBundle.mainBundle().loadNibNamed("XibPopup", owner: nil, options: nil)[0] as XibPopup
+            self.aPopupContainer = PopupContainer.generatePopupWithView(xibView)
+            self.aPopupContainer?.show()
+        }
+
+        func closePopup() {
+            self.aPopupContainer?.close()
+        }
+    }
 
 ## Requirements
+
+iOS 7.0+
 
 ## Installation
 
@@ -20,9 +41,6 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Lucas, lucaslt89@gmail.com
+Lucas Diez de Medina @ Technopix Argentina, lucas.diez@technopix.com.ar
 
-## License
-
-PopupContainer is available under the MIT license. See the LICENSE file for more info.
 
