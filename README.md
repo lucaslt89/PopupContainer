@@ -8,6 +8,11 @@
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+Before using PopupContainer, import the module to your file:
+
+    import PopupContainer
+
 To create a popup, use any UIView you have created, either from Xib or from code, and then do
 
     PopupContainer.generatePopupWithView(yourView).show()
