@@ -1,0 +1,6 @@
+framework module PopupContainer {
+  umbrella header "Pods-PopupContainer-umbrella.h"
+
+  export *
+  module * { export * }
+}

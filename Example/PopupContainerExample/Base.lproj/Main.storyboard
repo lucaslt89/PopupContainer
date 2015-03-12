@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopupContainerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHs-gr-khL">
+                                <rect key="frame" x="226" y="120" width="149" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="wRU-Bh-Ubq"/>
+                                </constraints>
+                                <state key="normal" title="Show popup from Xib">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFromXibButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="is1-9Z-Oj9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ux7-4h-lJg">
+                                <rect key="frame" x="189" y="205" width="222" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="WKE-Y8-nXA"/>
+                                </constraints>
+                                <state key="normal" title="Show popup from coded UIView">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFromCodedUIViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBh-fW-UkJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ux7-4h-lJg" firstAttribute="top" secondItem="tHs-gr-khL" secondAttribute="bottom" constant="27" id="TEn-D9-JPd"/>
+                            <constraint firstItem="Ux7-4h-lJg" firstAttribute="centerX" secondItem="tHs-gr-khL" secondAttribute="centerX" id="bdC-HA-LT2"/>
+                            <constraint firstItem="tHs-gr-khL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="fNy-st-jRG"/>
+                            <constraint firstAttribute="centerX" secondItem="tHs-gr-khL" secondAttribute="centerX" constant="-0.5" id="iAS-7y-oqy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

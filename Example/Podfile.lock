@@ -1,0 +1,14 @@
+PODS:
+  - PopupContainer (0.1.0)
+
+DEPENDENCIES:
+  - PopupContainer (from `../`)
+
+EXTERNAL SOURCES:
+  PopupContainer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  PopupContainer: 46a86607f5262750d72ee8441a9d71e15e79a058
+
+COCOAPODS: 0.36.0
