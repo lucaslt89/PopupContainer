@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/PopupContainer.svg?style=flat)](http://cocoadocs.org/docsets/PopupContainer)
 [![Platform](https://img.shields.io/cocoapods/p/PopupContainer.svg?style=flat)](http://cocoadocs.org/docsets/PopupContainer)
 
+## NOTE
+
+Version 0.0.2 is adapted to Swift 1.2. If you want to use this library with previous Swift versions, force the pod version to 0.0.1
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

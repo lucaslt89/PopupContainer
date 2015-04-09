@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     var aPopupContainer: PopupContainer?
 
     @IBAction func showFromXibButtonPressed(sender: AnyObject) {
-        let xibView = NSBundle.mainBundle().loadNibNamed("XibPopup", owner: nil, options: nil)[0] as XibPopup
+        let xibView = NSBundle.mainBundle().loadNibNamed("XibPopup", owner: nil, options: nil)[0] as! XibPopup
         PopupContainer.generatePopupWithView(xibView).show()
     }
     

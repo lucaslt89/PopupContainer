@@ -33,6 +33,13 @@ public class PopupContainer: UIView {
     public class func generatePopupWithView(view: UIView) -> PopupContainer{
         let popupContainer = PopupContainer()
         
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "interfaceOrientationChanged:",
+            name: UIDeviceOrientationDidChangeNotification,
+            object: nil)
+        
         popupContainer.dialogView = view;
         popupContainer.dialogView.layer.cornerRadius = kDialogViewCornerRadius
         
@@ -40,24 +47,6 @@ public class PopupContainer: UIView {
     }
     
     // MARK: - Initialization and deinitialization methods
-    override init() {
-        super.init()
-        
-        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector: "interfaceOrientationChanged:",
-            name: UIDeviceOrientationDidChangeNotification,
-            object: nil)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    required public init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -97,7 +86,7 @@ public class PopupContainer: UIView {
             delay: 0.0,
             options: UIViewAnimationOptions.TransitionNone,
             animations: { () -> Void in
-                let window = UIApplication.sharedApplication().delegate?.window??
+                let window = UIApplication.sharedApplication().delegate!.window!
                 self.center = CGPointMake(window!.frame.size.width / 2, window!.frame.size.height / 2)
                 if self.isInIOS8() == false {
                     self.transform = CGAffineTransformMakeRotation(rotationAngle)
@@ -125,7 +114,7 @@ public class PopupContainer: UIView {
         
         self.dialogView.center = self.center
         
-        let window = UIApplication.sharedApplication().delegate?.window??
+        let window = UIApplication.sharedApplication().delegate!.window!
         window?.addSubview(self)
         self.center = CGPointMake(window!.frame.size.width / 2, window!.frame.size.height / 2)
         
