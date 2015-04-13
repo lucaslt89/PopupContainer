@@ -7,7 +7,7 @@
 
 ## NOTE
 
-Version 0.0.2 is adapted to Swift 1.2. If you want to use this library with previous Swift versions, force the pod version to 0.0.1
+Since Version 0.0.2 is adapted to Swift 1.2. If you want to use this library with previous Swift versions, force the pod version to 0.0.1
 
 ## Usage
 
