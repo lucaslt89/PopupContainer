@@ -99,9 +99,9 @@ public class PopupContainer: UIView {
     public func show() {
         self.applyMotionEffects()
         
-        var screenWidth = UIScreen.mainScreen().bounds.size.width
-        var screenHeight = UIScreen.mainScreen().bounds.size.height
-        var largerSide = screenWidth > screenHeight ? screenWidth : screenHeight
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        let largerSide = screenWidth > screenHeight ? screenWidth : screenHeight
         
         //For the black background
         self.frame = CGRectMake(0, 0, largerSide * 2, largerSide * 2)
