@@ -139,6 +139,7 @@
 		A07042C11AB1D243008D76F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Technopix;
 				TargetAttributes = {
