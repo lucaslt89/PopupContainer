@@ -47,6 +47,20 @@ PopupContainer is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
     pod "PopupContainer"
+    
+## Examples
+
+This screenshots were taken from the example project:
+
+Portrait:
+
+![Portrait popup small](https://github.com/lucaslt89/PopupContainer/blob/master/Screenshots/1.jpg)
+![Protrait popup big](https://github.com/lucaslt89/PopupContainer/blob/master/Screenshots/2.jpg)
+
+Landscape:
+
+![Landscape popup small](https://github.com/lucaslt89/PopupContainer/blob/master/Screenshots/3.jpg)
+![Landscape popup big](https://github.com/lucaslt89/PopupContainer/blob/master/Screenshots/4.jpg)
 
 ## Author
 
