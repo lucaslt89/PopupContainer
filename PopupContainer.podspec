@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PopupContainer'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'A Popup container that shows any UIView as a UIAlertView, taking care of animations and positioning.'
   s.homepage         = "https://github.com/lucaslt89/PopupContainer"
   s.license          = 'MIT'
