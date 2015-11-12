@@ -93,6 +93,15 @@ public class PopupContainer: UIView {
                 }
             }, completion: nil)
     }
+
+    // MARK: Touch events
+
+    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first!
+        if touchIsOutsideDialogView(touch) {
+            close()
+        }
+    }
     
     // MARK: - Interaction Methods
     
@@ -162,9 +171,16 @@ public class PopupContainer: UIView {
             self.removeFromSuperview()
         }
     }
-    
+
+    // MARK: - Helper Methods
+
     func isInIOS8() -> Bool {
         return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8
+    }
+
+    func touchIsOutsideDialogView(touch: UITouch) -> Bool {
+        let touchPoint = touch.locationInView(dialogView)
+        return touchPoint.x < 0 || touchPoint.y < 0 || touchPoint.x > dialogView.bounds.width || touchPoint.y > dialogView.bounds.height
     }
 
 }
