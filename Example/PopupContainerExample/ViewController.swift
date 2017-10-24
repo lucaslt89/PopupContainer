@@ -13,25 +13,25 @@ class ViewController: UIViewController {
     
     var aPopupContainer: PopupContainer?
 
-    @IBAction func showFromXibButtonPressed(sender: AnyObject) {
-        let xibView = NSBundle.mainBundle().loadNibNamed("XibPopup", owner: nil, options: nil)[0] as! XibPopup
-        PopupContainer.generatePopupWithView(xibView).show()
+    @IBAction func showFromXibButtonPressed(_ sender: AnyObject) {
+        let xibView = Bundle.main.loadNibNamed("XibPopup", owner: nil, options: nil)![0] as! XibPopup
+        PopupContainer.generatePopupWithView(view: xibView).show()
     }
     
-    @IBAction func showFromCodedUIViewButtonPressed(sender: AnyObject) {
-        let codedView = UIView(frame: CGRectMake(0, 0, 100, 100))
-        codedView.backgroundColor = UIColor.blackColor()
-        let closeButton = UIButton(frame: CGRectMake(0, 0, 80, 50))
+    @IBAction func showFromCodedUIViewButtonPressed(_ sender: AnyObject) {
+        let codedView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        codedView.backgroundColor = UIColor.black
+        let closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height :50))
         closeButton.center = codedView.center
-        closeButton.setTitle("Close!", forState: UIControlState.Normal)
-        closeButton.addTarget(self, action: "closePopup", forControlEvents: UIControlEvents.TouchUpInside)
+        closeButton.setTitle("Close!", for: UIControlState.normal)
+        closeButton.addTarget(self, action: #selector(closePopup), for: UIControlEvents.touchUpInside)
         codedView.addSubview(closeButton)
         
-        self.aPopupContainer = PopupContainer.generatePopupWithView(codedView)
+        self.aPopupContainer = PopupContainer.generatePopupWithView(view: codedView)
         self.aPopupContainer?.show()
     }
     
-    func closePopup() {
+    @objc func closePopup() {
         self.aPopupContainer?.close()
     }
 }

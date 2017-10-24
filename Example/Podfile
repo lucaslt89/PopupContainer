@@ -1,5 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
+swift_version = '4.0'
 use_frameworks!
 
-pod "PopupContainer", :path => "../"
+target 'PopupContainerExample' do
+  pod 'PopupContainer', :path => '../'
+end
 
