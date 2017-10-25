@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         self.aPopupContainer?.show()
     }
     
-    func closePopup() {
+    @objc func closePopup() {
         self.aPopupContainer?.close()
     }
 }

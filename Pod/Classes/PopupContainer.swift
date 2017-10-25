@@ -36,7 +36,7 @@ open class PopupContainer: UIView {
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         NotificationCenter.default.addObserver(
             popupContainer,
-            selector: #selector(PopupContainer.interfaceOrientationChanged(_:)),
+            selector: #selector(PopupContainer.interfaceOrientationChanged(notification:)),
             name: NSNotification.Name.UIDeviceOrientationDidChange,
             object: nil)
         
@@ -70,14 +70,14 @@ open class PopupContainer: UIView {
         self.dialogView.addMotionEffect(motionEffectGroup)
     }
     
-    func interfaceOrientationChanged(_ notification: Notification) {
+    @objc func interfaceOrientationChanged(notification: NSNotification) {
         var rotationAngle : CGFloat = 0
         
         switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft: rotationAngle = CGFloat(M_PI_2) * 3
-        case .landscapeRight: rotationAngle = CGFloat(M_PI_2)
+        case .landscapeLeft: rotationAngle = CGFloat(Double.pi / 2) * 3
+        case .landscapeRight: rotationAngle = CGFloat(Double.pi / 2)
         case .portrait: rotationAngle = 0
-        case .portraitUpsideDown: rotationAngle = CGFloat(M_PI)
+        case .portraitUpsideDown: rotationAngle = CGFloat(Double.pi)
         default: rotationAngle = 0
         }
         
@@ -102,7 +102,7 @@ open class PopupContainer: UIView {
             close()
         }
     }
-    
+
     // MARK: - Interaction Methods
     
     open func show() {
@@ -130,10 +130,10 @@ open class PopupContainer: UIView {
         let interfaceOrientation = UIApplication.shared.statusBarOrientation
         
         switch (interfaceOrientation) {
-        case .landscapeLeft: self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2) * 3)
-        case .landscapeRight: self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2))
+        case .landscapeLeft: self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2) * 3)
+        case .landscapeRight: self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
         case .portrait: self.transform = CGAffineTransform(rotationAngle: 0)
-        case .portraitUpsideDown: self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+        case .portraitUpsideDown: self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         default: break;
         }
         
@@ -147,7 +147,7 @@ open class PopupContainer: UIView {
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
-            options: UIViewAnimationOptions(),
+            options: UIViewAnimationOptions.curveEaseInOut,
             animations: { () -> Void in
                 self.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                 self.dialogView.layer.opacity = 1

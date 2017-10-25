@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PopupContainerVersionNumber;
-FOUNDATION_EXPORT const unsigned char PopupContainerVersionString[];
+FOUNDATION_EXPORT double Pods_PopupContainerExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_PopupContainerExampleVersionString[];
 
