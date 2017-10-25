@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     @IBAction func showFromXibButtonPressed(_ sender: AnyObject) {
         let xibView = Bundle.main.loadNibNamed("XibPopup", owner: nil, options: nil)![0] as! XibPopup
-        PopupContainer.generatePopupWithView(view: xibView).show()
+        PopupContainer.generatePopupWithView(xibView).show()
     }
     
     @IBAction func showFromCodedUIViewButtonPressed(_ sender: AnyObject) {
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         closeButton.addTarget(self, action: #selector(closePopup), for: UIControlEvents.touchUpInside)
         codedView.addSubview(closeButton)
         
-        self.aPopupContainer = PopupContainer.generatePopupWithView(view: codedView)
+        self.aPopupContainer = PopupContainer.generatePopupWithView(codedView)
         self.aPopupContainer?.show()
     }
     

@@ -30,7 +30,7 @@ public class PopupContainer: UIView {
 
     var dialogView : UIView!
     
-    public class func generatePopupWithView(view: UIView) -> PopupContainer{
+    public class func generatePopupWithView(_ view: UIView) -> PopupContainer{
         let popupContainer = PopupContainer()
         
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
