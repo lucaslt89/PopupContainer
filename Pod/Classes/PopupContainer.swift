@@ -24,19 +24,19 @@ import UIKit
 
 private let kDialogViewCornerRadius : CGFloat = 3
 
-public class PopupContainer: UIView {
+open class PopupContainer: UIView {
     
     let kMotionEffectExtent : CGFloat = 10
 
     var dialogView : UIView!
     
-    public class func generatePopupWithView(_ view: UIView) -> PopupContainer{
+    open class func generatePopupWithView(_ view: UIView) -> PopupContainer{
         let popupContainer = PopupContainer()
         
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         NotificationCenter.default.addObserver(
             popupContainer,
-            selector: #selector(interfaceOrientationChanged(notification:)),
+            selector: #selector(PopupContainer.interfaceOrientationChanged(notification:)),
             name: NSNotification.Name.UIDeviceOrientationDidChange,
             object: nil)
         
@@ -84,7 +84,7 @@ public class PopupContainer: UIView {
         UIView.animate(
             withDuration: 0.5,
             delay: 0.0,
-            options: [],
+            options: UIViewAnimationOptions(),
             animations: { () -> Void in
                 let window = UIApplication.shared.delegate!.window!
                 self.center = CGPoint(x: window!.frame.size.width / 2, y: window!.frame.size.height / 2)
@@ -95,16 +95,17 @@ public class PopupContainer: UIView {
     }
 
     // MARK: Touch events
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
-        if touchIsOutsideDialogView(touch: touch) {
+        if touchIsOutsideDialogView(touch) {
             close()
         }
     }
 
     // MARK: - Interaction Methods
     
-    public func show() {
+    open func show() {
         self.applyMotionEffects()
         
         let screenWidth = UIScreen.main.bounds.size.width
@@ -154,14 +155,14 @@ public class PopupContainer: UIView {
         }, completion: nil)
     }
     
-    public func close() {
+    open func close() {
         self.dialogView.layer.transform = CATransform3DMakeScale(1, 1, 1)
         self.dialogView.layer.opacity = 1.0
         
         UIView.animate(
             withDuration: 0.2,
             delay: 0.0,
-            options: [],
+            options: UIViewAnimationOptions(),
             animations: { () -> Void in
                 self.backgroundColor = UIColor.black.withAlphaComponent(0)
                 self.dialogView.layer.transform = CATransform3DMakeScale(0.6, 0.6, 1)
@@ -177,7 +178,7 @@ public class PopupContainer: UIView {
         return (UIDevice.current.systemVersion as NSString).floatValue >= 8
     }
 
-    func touchIsOutsideDialogView(touch: UITouch) -> Bool {
+    func touchIsOutsideDialogView(_ touch: UITouch) -> Bool {
         let touchPoint = touch.location(in: dialogView)
         return touchPoint.x < 0 || touchPoint.y < 0 || touchPoint.x > dialogView.bounds.width || touchPoint.y > dialogView.bounds.height
     }
